@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block learnactive %}active{% endblock learnactive %}
+{% block body %}
+
+<div class="container d-flex justify-content-around">
+
+{% for course in courses %}
+
+<div class="card my-2" style="width: 18rem;">
+    <img class="card-img-top" src="{%static 'img/bday.jpg'%}" alt="Card image cap">
+    <div class="card-body">
+      <h4 class="card-title text-dark"><a class="text-dark" href="/course/{{course.slug}}">{{course.title}}</a></h4>
+      <p class="card-text">{{course.content | slice:100}}...</p>
+      <a href="#" class="btn btn-primary">View More</a>
+    </div>
+  </div>
+
+{% endfor %}
+<br>
+
+</div>
+
+
+
+{% endblock body %}
